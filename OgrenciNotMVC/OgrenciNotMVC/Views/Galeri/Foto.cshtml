@@ -1,0 +1,19 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Foto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Öğrenci Fotoğrafları Galerisi</h2>
+
+<div class="row">
+    @foreach (var foto in Model) 
+    {
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <img src="@Url.Content(foto)" alt="Öğrenci Fotoğrafı" style="width:100%">
+            </div>
+        </div>
+    }
+</div>
+

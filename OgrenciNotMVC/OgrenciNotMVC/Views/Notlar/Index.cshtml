@@ -1,0 +1,41 @@
+﻿@using OgrenciNotMVC.Models.EntityFramework;
+@model List<TBLNOTLAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>NOT ID</th>
+        <th>DERS ID/DERS AD</th>
+        <th>ÖĞRENCİ ID-ÖĞRENCİ AD SOYAD</th>
+        <th>SINAV 1</th>
+        <th>SINAV 2</th>
+        <th>SINAV 3</th>
+        <th>PROJE</th>
+        <th>ORTALAMA</th>
+        <th>DURUM</th>
+        <th>İŞLEM</th>
+    </tr>
+    <tbody>
+        @foreach (var not in Model)
+        {
+            <tr>
+                <td>@not.NOTID</td>
+                <td>@not.DERSID/@not.TBLDERSLER.DERSADI</td>
+                <td>@not.OGRID-@not.TBLOGRENCILER.OGRAD @not.TBLOGRENCILER.OGRSOYAD</td>
+                <td>@not.SINAV1</td>
+                <td>@not.SINAV2</td>
+                <td>@not.SINAV3</td>
+                <td>@not.PROJE</td>
+                <td>@not.ORTALAMA</td>
+                <td>@not.DURUM</td>
+                <td><a href="/Notlar/NotGetir/@not.NOTID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Notlar/YeniNot" class="btn btn-info" style="margin-bottom:15px">Sınav Notları Ekle</a>
+<p style="font-weight:700">DURUM: </p><p style="font-weight:500">True=Geçti, False=Kaldı</p>
+
